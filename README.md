@@ -1,3 +1,5 @@
+Master Branch: [![Travis CI](https://travis-ci.org/caofangkun/storm-ui.svg?branch=master)](https://travis-ci.org/caofangkun/storm-ui)
+
 ##Package
 * package war
 
