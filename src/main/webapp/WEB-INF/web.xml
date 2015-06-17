@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<display-name>JStorm UI</display-name>
+	<context-param>
+		<param-name>debug</param-name>
+		<param-value>false</param-value>
+	</context-param>
+
+	<session-config>
+		<!-- 10 minutes -->
+		<session-timeout>10</session-timeout>
+	</session-config>
+
+	<servlet>
+		<display-name>conf</display-name>
+		<servlet-name>conf</servlet-name>
+		<servlet-class>org.apache.storm.ui.core.api.cluster.ClusterConfigurationServlet</servlet-class>
+		<init-param>
+			<param-name>sleep-time-in-seconds</param-name>
+			<param-value>10</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet>
+		<display-name>clusterSummary</display-name>
+		<servlet-name>clusterSummary</servlet-name>
+		<servlet-class>org.apache.storm.ui.core.api.cluster.ClusterSummaryServlet</servlet-class>
+		<init-param>
+			<param-name>sleep-time-in-seconds</param-name>
+			<param-value>10</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet>
+		<display-name>supervisorConf</display-name>
+		<servlet-name>supervisorConf</servlet-name>
+		<servlet-class>org.apache.storm.ui.core.api.supervisor.SupervisorConfServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<display-name>supervisorSummary</display-name>
+		<servlet-name>supervisorSummary</servlet-name>
+		<servlet-class>org.apache.storm.ui.core.api.supervisor.SupervisorSummaryServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<display-name>supervisorWorkers</display-name>
+		<servlet-name>supervisorWorkers</servlet-name>
+		<servlet-class>org.apache.storm.ui.core.api.supervisor.SupervisorWorkersServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<display-name>topologySummary</display-name>
+		<servlet-name>topologySummary</servlet-name>
+		<servlet-class>org.apache.storm.ui.core.api.topology.AllTopologiesSummaryServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<display-name>topologyDetail</display-name>
+		<servlet-name>topologyDetail</servlet-name>
+		<servlet-class>org.apache.storm.ui.core.api.topology.TopologyPageServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<display-name>componentPage</display-name>
+		<servlet-name>componentPage</servlet-name>
+		<servlet-class>org.apache.storm.ui.core.api.topology.ComponentPageServlet</servlet-class>
+	</servlet>
+
+
+	<servlet-mapping>
+		<servlet-name>conf</servlet-name>
+		<url-pattern>/api/v1/cluster/configuration</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>clusterSummary</servlet-name>
+		<url-pattern>/api/v1/cluster/summary</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>supervisorConf</servlet-name>
+		<url-pattern>/api/v1/supervisor/conf</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>supervisorSummary</servlet-name>
+		<url-pattern>/api/v1/supervisor/summary</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>supervisorWorkers</servlet-name>
+		<url-pattern>/api/v1/supervisor/workers</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>topologySummary</servlet-name>
+		<url-pattern>/api/v1/topology/summary</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>topologyDetail</servlet-name>
+		<url-pattern>/api/v1/topology</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>componentPage</servlet-name>
+		<url-pattern>/api/v1/topology/component</url-pattern>
+	</servlet-mapping>
+</web-app>
